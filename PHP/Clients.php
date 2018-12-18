@@ -16,11 +16,18 @@
         $sql = $cnx->prepare("select identifiant,nom,prenom,ancienReleve,dernierReleve from client where idcontroleur =".$_GET['id']);
         $sql->execute();
 
+        echo "<table border='1'>";
         foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
         {
-            echo "<p>".$ligne['nom']." - " .$ligne['prenom']." - ".$ligne['ancienReleve']." - " .$ligne['dernierReleve']. "</p>";
-            echo "<td><a href='AjoutReleve.php?identifiant=".$ligne['identifiant']."'>Nouveau releve</a></td>";
+            echo "<tr>";
+                echo "<td>".$ligne['nom']."</td>";
+                echo "<td>".$ligne['prenom']."</td>";
+                echo "<td>".$ligne['ancienReleve']."</td>";
+                echo "<td>".$ligne['dernierReleve']."</td>";
+                echo "<td><a href='AjoutReleve.php?identifiant=".$ligne['identifiant']."'>Nouveau releve</a></td>";
+                echo "</tr>";
         }
+        echo "<table>";
     ?>
 </body>
 </html>
