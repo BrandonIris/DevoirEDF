@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -15,13 +15,17 @@
     $sql = $cnx->prepare("select nom,prenom,ancienReleve,dernierReleve from client where identifiant =".$_GET['identifiant']);
     $sql->execute();
 
-        echo '<form action="AjoutReleve.php" method="post">
-        <label>Nouveau releve</label>
-        <br>
-        <input name="Releve" type="text">
-        <br>
-        <input type="submit" value="Insérer">
-        </form>';
+    foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
+        {
+            echo "<p>".$ligne['nom']." - " .$ligne['prenom']." - ".$ligne['ancienReleve']." - " .$ligne['dernierReleve']. "</p>";
+            echo '<form action="AjoutReleve.php" method="post">
+            <label>Nouveau releve</label>
+            <br>
+            <input name="Releve" type="text">
+            <br>
+            <input type="submit" value="Insérer">
+            </form>';
+        }
     ?>
 </body>
 </html>
