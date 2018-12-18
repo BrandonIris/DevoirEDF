@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    <form name="x" action="index.php" method="post">
+    <input type="submit" value="Home">
+    </form>
     <?php
 
         include 'cnx.php';
