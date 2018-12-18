@@ -13,12 +13,13 @@
     <?php
 
         include 'cnx.php';
-        $sql = $cnx->prepare("select nom,prenom,ancienReleve,dernierReleve from client where idcontroleur =".$_GET['id']);
+        $sql = $cnx->prepare("select identifiant,nom,prenom,ancienReleve,dernierReleve from client where idcontroleur =".$_GET['id']);
         $sql->execute();
 
         foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
         {
             echo "<p>".$ligne['nom']." - " .$ligne['prenom']." - ".$ligne['ancienReleve']." - " .$ligne['dernierReleve']. "</p>";
+            echo "<td><a href='AjoutReleve.php?identifiant=".$ligne['identifiant']."'>Nouveau releve</a></td>";
         }
     ?>
 </body>

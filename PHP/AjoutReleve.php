@@ -9,6 +9,19 @@
     <script src="main.js"></script>
 </head>
 <body>
-    
+    <?php
+
+    include 'cnx.php';
+    $sql = $cnx->prepare("select nom,prenom,ancienReleve,dernierReleve from client where identifiant =".$_GET['identifiant']);
+    $sql->execute();
+
+        echo '<form action="AjoutReleve.php" method="post">
+        <label>Nouveau releve</label>
+        <br>
+        <input name="Releve" type="text">
+        <br>
+        <input type="submit" value="Insérer">
+        </form>';
+    ?>
 </body>
 </html>
