@@ -11,7 +11,7 @@
         include 'C:\xampp\htdocs\Master2019\DevoirEDF\PHP\cnx.php';
         $sql = $cnx->prepare("select id, nom, prenom from controleur");
         $sql->execute();
-        echo "<table border='1'>";
+        echo "<table border='2'>";
         foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
         {
             echo "<tr>";

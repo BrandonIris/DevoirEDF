@@ -15,7 +15,7 @@
     $sql = $cnx->prepare("select nom,prenom,ancienReleve,dernierReleve from client where identifiant =".$_GET['identifiant']);
     $sql->execute();
 
-    echo "<table border='1'>";
+    echo "<table border='2'>";
     foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
         {
             echo "<tr>";
