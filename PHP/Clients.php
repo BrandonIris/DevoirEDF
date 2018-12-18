@@ -10,7 +10,7 @@
     <?php
 
         include 'cnx.php';
-        $sql = $cnx->prepare("select nom,prenom,ancienReleve,dernierReleve from client");
+        $sql = $cnx->prepare("select nom,prenom,ancienReleve,dernierReleve from client where idcontroleur =".$_GET['id']);
         $sql->execute();
 
         foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)

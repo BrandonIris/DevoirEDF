@@ -17,7 +17,7 @@
             echo "<tr>";
                 echo "<td>".$ligne['nom']."</td>";
                 echo "<td>".$ligne['prenom']."</td>";
-                echo "<td><a href='Clients.php?controleur".$ligne['id']."'>Tous les clients</a></td>";
+                echo "<td><a href='Clients.php?id=".$ligne['id']."'>Tous les clients</a></td>";
             echo "</tr>";
         }
         echo "</table>";
